@@ -20,7 +20,7 @@ Web
 
 ## Other notes
 
-The project is ugly as it. It was meant as a proof-of-concept to be developed on a more appropriate platform later, like Android. I will update this project with a link to the new version when I start it.
+The project is ugly as-is. It was meant as a proof-of-concept to be developed on a more appropriate platform later, like Android. I will update this project with a link to the new version when I start it.
 
 Languages lean heavily on JS becuase I had to download two of the modules I used. See the "Static" folder.
 
