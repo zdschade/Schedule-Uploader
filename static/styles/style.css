@@ -1,0 +1,45 @@
+.header {
+    text-align: center;
+    font-family: "arial";
+
+}
+
+.drop{
+    text-align: center;
+    margin: 0 auto;
+}
+
+.submit {
+    margin-top: 25px;
+    text-align: center;
+    background-color: lightgray;
+    border: none;
+    border-radius: 10px;
+    height: 40px;
+    width: 80px;
+    font-family: "arial";
+    font-size: large;
+}
+
+.crop {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.jcrop-stage {
+    margin: 0 auto;
+}
+
+.schedule_img {
+    margin-left: -50%;
+    max-width: 100%;
+}
+
+.results {
+    text-align: center;
+}
+
+.results img {
+    margin: 0 auto;
+    max-width: 100%;
+}
