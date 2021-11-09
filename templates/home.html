@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+        <link rel= "stylesheet" type= "text/css" href= "../static/styles/style.css">
+        <link rel="stylesheet" href="https://unpkg.com/jcrop/dist/jcrop.css">
+        <script src="https://unpkg.com/jcrop"></script>
+
+        {{ dropzone.load_css() }}
+        {{ dropzone.style('height: 350px;
+        width: 500px;
+        border-radius: 25px;
+        border: 2px dashed;') }}
+
+        <title>OCR Auto Scheduler</title>
+    </head>
+    <body>
+        {{ dropzone.load_js() }}
+
+        <div class='header'>
+            <h1>OCR Auto Scheduler</h1>
+        </div>
+
+        <div class=drop>
+            <center>
+            {{ dropzone.create(action='upload', method='POST') }}
+
+            {{ dropzone.config() }}
+            </center>
+
+            <form action = "http://localhost:5000/crop" method = "POST" 
+            enctype = "multipart/form-data">
+            <input class='submit' type="submit">
+        </div>
+    </body>
+    <script>
+        let dropArea = document.getElementById('drop-area')
+
+
+        ;['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+        dropArea.addEventListener(eventName, preventDefaults, false)
+        })
+        
+        function preventDefaults (e) {
+        e.preventDefault()
+        e.stopPropagation()
+        }
+        
+
+
+    </script>
+</html>

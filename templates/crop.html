@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/jcrop/dist/jcrop.css">
+    <script src="https://unpkg.com/jcrop"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <link  href="../static/cropperjs-1.5.11/dist/cropper.css" rel="stylesheet">
+    <script src="../static/cropperjs-1.5.11/dist/cropper.js"></script>
+
+    <title>OCR Auto Scheduler - Crop</title>
+</head>
+<body>
+    <div class='header'>
+        <h1>OCR Auto Scheduler</h1>
+    </div>
+
+    <div class="crop">
+        <img src="{{ schedule_image }}" id="schedule" class="schedule_img">
+
+        <form action = "http://localhost:5000/schedule_prep" method = "POST" 
+            enctype = "multipart/form-data">
+            <br>
+            <input type="hidden" id="coords" name="coords">
+            <input type="submit" onclick="show_coords()" class="submit">
+        </form>
+    </div>
+    <div style="text-align: center;">
+        <h3>Please crop the entire width of your schedule, even if you only work one day</h3>
+    </div>
+</body>
+<script>
+    const image = document.getElementById('schedule');
+    const cropper = new Cropper(image, {
+        //aspectRatio: 16 / 9,
+        crop(event) {
+            console.log(event.detail.x);
+            console.log(event.detail.y);
+            console.log(event.detail.width);
+            console.log(event.detail.height);
+            console.log(event.detail.rotate);
+            console.log(event.detail.scaleX);
+            console.log(event.detail.scaleY);
+            document.getElementById("coords").value = (String(event.detail.x) + "," + String(event.detail.y) + "," + String(event.detail.width) + "," + String(event.detail.height));
+            },
+        });
+</script>
+</html>
